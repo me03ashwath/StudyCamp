@@ -1,0 +1,10 @@
+<h3>Recents Activity</h3>
+<hr>
+{% for activity in activities %}
+<div>
+    <small><small>@{{activity.user}}  {{activity.created|timesince}}</small></small>
+    <small><small>in room "{{activity.room}}"</small></small>
+    <h4>{{activity}}</h4>
+    <hr>
+</div>
+{% endfor %}

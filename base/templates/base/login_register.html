@@ -18,7 +18,7 @@
             <input type="submit" value="Login">
         </form>
 
-        <p>Haven't signed in yet?</p>
+        <p>Don't have an account?</p>
         <a href="{% url 'registerPage' %}">Sign up</a>
     </div>
 
@@ -32,7 +32,8 @@
         </form>
 
         <p>already signed up?</p>
-        <a href="{% url 'loginPage' %}">Sign up</a>
+        <a href="{% url 'loginPage' %}">Login</a>
+        
     </div>
 
     {% endif %}
