@@ -2,8 +2,8 @@
 <hr>
 {% for activity in activities %}
 <div>
-    <small><small>@{{activity.user}}  {{activity.created|timesince}}</small></small>
-    <small><small>in room "{{activity.room}}"</small></small>
+    <small><small><a href="{% url 'user-profile' activity.user.id %}">@{{activity.user}}</a>  {{activity.created|timesince}} ago</small></small>
+    <small><small><a href="{% url 'room' activity.room.id %}">in "{{activity.room}}"</a></small></small>
     <h4>{{activity}}</h4>
     <hr>
 </div>
