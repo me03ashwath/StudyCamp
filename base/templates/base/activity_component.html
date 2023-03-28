@@ -1,10 +1,36 @@
-<h3>Recents Activity</h3>
-<hr>
-{% for activity in activities %}
-<div>
-    <small><small><a href="{% url 'user-profile' activity.user.id %}">@{{activity.user}}</a>  {{activity.created|timesince}} ago</small></small>
-    <small><small><a href="{% url 'room' activity.room.id %}">in "{{activity.room}}"</a></small></small>
-    <h4>{{activity}}</h4>
-    <hr>
-</div>
-{% endfor %}
+<div class="activities">
+    <div class="activities__header">
+      <h2>Recent Activities</h2>
+    </div>
+    {% for activity in activities %}
+    <div class="activities__box">
+      <div class="activities__boxHeader roomListRoom__header">
+        <a href="{% url 'user-profile' activity.user.id %}" class="roomListRoom__author">
+          <div class="avatar avatar--small">
+            <img src="https://randomuser.me/api/portraits/women/11.jpg" />
+          </div>
+          <p>
+            {{activity.user}}
+            <span>{{activity.created|timesince}} ago</span>
+          </p>
+        </a>
+        <div class="roomListRoom__actions">
+          <a href="#">
+            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+              <title>remove</title>
+              <path
+                d="M27.314 6.019l-1.333-1.333-9.98 9.981-9.981-9.981-1.333 1.333 9.981 9.981-9.981 9.98 1.333 1.333 9.981-9.98 9.98 9.98 1.333-1.333-9.98-9.98 9.98-9.981z">
+              </path>
+            </svg>
+          </a>
+        </div>
+      </div>
+      <div class="activities__boxContent">
+        <p>commented in <a href="{% url 'room' activity.room.id %}">{{activity.room}}</a></p>
+        <div class="activities__boxRoomContent">
+            {{activity}}
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+</div> 
